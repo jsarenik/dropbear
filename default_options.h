@@ -185,7 +185,9 @@ group1 in Dropbear server too */
 #define DROPBEAR_ZLIB_WINDOW_BITS 15 
 
 /* Whether to do reverse DNS lookups. */
+#ifndef DO_HOST_LOOKUP
 #define DO_HOST_LOOKUP 0
+#endif
 
 /* Whether to print the message of the day (MOTD). */
 #define DO_MOTD 1
