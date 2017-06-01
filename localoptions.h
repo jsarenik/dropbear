@@ -241,16 +241,6 @@ If you test it please contact the Dropbear author */
 #define DROPBEAR_ZLIB_WINDOW_BITS 15 
 #endif
 
-/* Whether to print the message of the day (MOTD). */
-#ifndef DO_MOTD
-#define DO_MOTD 0
-#endif
-
-/* The MOTD file path */
-#ifndef MOTD_FILENAME
-#define MOTD_FILENAME "/etc/motd"
-#endif
-
 /* Authentication Types - at least one required.
    RFC Draft requires pubkey auth, and recommends password */
 
@@ -261,20 +251,6 @@ If you test it please contact the Dropbear author */
  * PAM challenge/response.
  * You can't enable both PASSWORD and PAM. */
 
-/* This requires crypt() */
-#ifdef HAVE_CRYPT
-#ifndef DROPBEAR_SVR_PASSWORD_AUTH
-#define DROPBEAR_SVR_PASSWORD_AUTH 1
-#endif
-#else
-#ifndef DROPBEAR_SVR_PASSWORD_AUTH
-#define DROPBEAR_SVR_PASSWORD_AUTH 0
-#endif
-#endif
-/* PAM requires ./configure --enable-pam */
-#ifndef DROPBEAR_SVR_PAM_AUTH
-#define DROPBEAR_SVR_PAM_AUTH 0
-#endif
 #ifndef DROPBEAR_SVR_PUBKEY_AUTH
 #define DROPBEAR_SVR_PUBKEY_AUTH 1
 #endif
@@ -366,17 +342,10 @@ Homedir is prepended unless path begins with / */
 #define DROPBEAR_PIDFILE "/var/run/dropbear.pid"
 #endif
 
-/* if you want to enable running an sftp server (such as the one included with
- * OpenSSH), set the path below. If the path isn't defined, sftp will not
- * be enabled */
-#ifndef SFTPSERVER_PATH
-#define SFTPSERVER_PATH "/usr/libexec/sftp-server"
-#endif
-
 /* This is used by the scp binary when used as a client binary. If you're
  * not using the Dropbear client, you'll need to change it */
 #ifndef DROPBEAR_PATH_SSH_PROGRAM
-#define DROPBEAR_PATH_SSH_PROGRAM "/usr/bin/dbclient"
+#define DROPBEAR_PATH_SSH_PROGRAM "/bin/dbclient"
 #endif
 
 /* Whether to log commands executed by a client. This only logs the 
