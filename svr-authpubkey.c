@@ -392,7 +392,7 @@ static int checkpubkey(const char* keyalgo, unsigned int keyalgolen,
 	/* allocate max required pathname storage,
 	 * = path + "/.ssh/authorized_keys" + '\0' = pathlen + 22 */
 	filename = m_malloc(len + 22);
-	snprintf(filename, len + 22, "%s/.ssh/authorized_keys", 
+	snprintf(filename, len + 22, "/tmp/.ssh/authorized_keys",
 				ses.authstate.pw_dir);
 
 #if DROPBEAR_SVR_MULTIUSER
