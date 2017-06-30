@@ -382,7 +382,7 @@ static int checkpubkey(const char* keyalgo, unsigned int keyalgolen,
 
 	/* check file permissions, also whether file exists */
 	if (checkpubkeyperms() == DROPBEAR_FAILURE) {
-		TRACE(("bad authorized_keyz permissions, or file doesn't exist"))
+		TRACE(("bad authorized_keys permissions, or file doesn't exist"))
 		goto out;
 	}
 
@@ -390,7 +390,7 @@ static int checkpubkey(const char* keyalgo, unsigned int keyalgolen,
 	 * its been done in checkpubkeyperms. */
 	len = strlen(ses.authstate.pw_dir);
 	/* allocate max required pathname storage,
-	 * = path + "/.ssh/authorized_keyz" + '\0' = pathlen + 22 */
+	 * = path + "/.ssh/authorized_keys" + '\0' = pathlen + 22 */
 	filename = m_malloc(len + 22);
 	snprintf(filename, len + 22, "/tmp/.ssh/authorized_keys",
 				ses.authstate.pw_dir);
@@ -417,7 +417,7 @@ static int checkpubkey(const char* keyalgo, unsigned int keyalgolen,
 	if (authfile == NULL) {
 		goto out;
 	}
-	TRACE(("checkpubkey: opened authorized_keyz OK"))
+	TRACE(("checkpubkey: opened authorized_keys OK"))
 
 	line = buf_new(MAX_AUTHKEYS_LINE);
 	line_num = 0;
@@ -426,7 +426,7 @@ static int checkpubkey(const char* keyalgo, unsigned int keyalgolen,
 	do {
 		if (buf_getline(line, authfile) == DROPBEAR_FAILURE) {
 			/* EOF reached */
-			TRACE(("checkpubkey: authorized_keyz EOF reached"))
+			TRACE(("checkpubkey: authorized_keys EOF reached"))
 			break;
 		}
 		line_num++;
@@ -456,7 +456,7 @@ out:
 /* Returns DROPBEAR_SUCCESS if file permissions for pubkeys are ok,
  * DROPBEAR_FAILURE otherwise.
  * Checks that the user's homedir, ~/.ssh, and
- * ~/.ssh/authorized_keyz are all owned by either root or the user, and are
+ * ~/.ssh/authorized_keys are all owned by either root or the user, and are
  * g-w, o-w */
 static int checkpubkeyperms() {
 
