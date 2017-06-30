@@ -23,6 +23,4 @@ See default_options.h.in for a description of the available options.
  * in sysoptions.h */
 #include "sysoptions.h"
 
-#define DROPBEAR_NONE_CIPHER 1
-
 #endif /* DROPBEAR_OPTIONS_H */
