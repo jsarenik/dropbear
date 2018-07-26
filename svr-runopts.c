@@ -570,6 +570,7 @@ void load_all_hostkeys() {
 #if DROPBEAR_ECDSA
 	int loaded_any_ecdsa = 0;
 #endif
+	}
 
 	svr_opts.hostkey = new_sign_key();
 
