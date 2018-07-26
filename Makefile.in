@@ -220,7 +220,7 @@ ifeq ($(MULTI),1)
 endif
 
 dropbearmulti$(EXEEXT): $(HEADERS) $(MULTIOBJS) $(LIBTOM_DEPS) Makefile
-	$(CC) $(LDFLAGS) -o $@ $(MULTIOBJS) $(LIBTOM_LIBS) $(LIBS) @CRYPTLIB@
+	+$(CC) $(LDFLAGS) -o $@ $(MULTIOBJS) $(LIBTOM_LIBS) $(LIBS) @CRYPTLIB@
 
 multibinary: dropbearmulti$(EXEEXT)
 
